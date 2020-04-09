@@ -42,4 +42,4 @@ To do so, your program must, given a number of days (calledperiod) as argument:
 #### DESCRIPTION
 * period        the number of days defining a period
 
-Author **Corentin COUTRET-ROZET** and **PATRICIA MONFA-MATAS**
+Author [**Corentin COUTRET-ROZET**](https://github.com/sheiiva) and [**PATRICIA MONFA-MATAS**](https://github.com/patumm)
