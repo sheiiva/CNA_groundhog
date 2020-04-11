@@ -36,6 +36,9 @@ class ArgumentManager():
         if not isNum(argv[1]):
             print("Period's value must be an integer!\nFor more informations, please execute:\n\t./groundhog -h")
             return 84
+        if int(argv[1]) <= 0:
+            print("Delay must equal or greater than 0.\nFor more informations, please execute:\n\t./groundhog -h")
+            return 84
 
     def needHelp(self, argv):
 
