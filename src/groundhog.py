@@ -47,8 +47,10 @@ class Groundhog():
             value = input()
             value = float(value)
         except KeyboardInterrupt:
+            print("KeyboardInterrupt")
             exit(84)
         except EOFError:
+            print("EOFError")
             exit(84)
         except ValueError:
             if isEnd(value):

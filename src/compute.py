@@ -35,10 +35,7 @@ class Compute():
             if tmp > 0:
                 groundhog._g += tmp
             i += 1
-        try :
-            groundhog._g /= groundhog._period
-        except ZeroDivisionError:
-            groundhog._g = 0
+        groundhog._g /= groundhog._period
 
     def computeR(self, groundhog, periodIsPast):
 
@@ -49,8 +46,16 @@ class Compute():
 
         if not periodIsPast:
             return
-        groundhog._r = ((groundhog._values[-1] / groundhog._values[-1-groundhog._period]) * 100) - 100
-        groundhog._r = int(groundhog._r + (0.5 - int(groundhog._r < 0)))
+        if groundhog._values[-1-groundhog._period] == 0:
+            if groundhog._values[-1] < 0:
+                groundhog._r = -100
+            elif groundhog._values[-1] > 0:
+                groundhog._r = 100
+            else:
+                groundhog._r = 0
+        else:
+            groundhog._r = ((groundhog._values[-1] / groundhog._values[-1-groundhog._period]) * 100) - 100
+            groundhog._r = int(groundhog._r + (0.5 - int(groundhog._r < 0)))
 
     def computeS(self, groundhog, periodIsPast):
 
@@ -104,6 +109,8 @@ class Compute():
                 groundhog._bollingerValues.append(1 - bvalue)
             else :
                 groundhog._bollingerValues.append(bvalue)
+        elif (bandHight == bandLow):
+            groundhog._bollingerValues.append(0) # 1
         else:
             exit(84)
 
