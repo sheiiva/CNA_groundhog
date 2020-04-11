@@ -110,7 +110,7 @@ class Compute():
             else :
                 groundhog._bollingerValues.append(bvalue)
         elif (bandHight == bandLow):
-            groundhog._bollingerValues.append(0) # 1
+            groundhog._bollingerValues.append(groundhog._values[-1] - average)
         else:
             exit(84)
 
